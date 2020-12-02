@@ -7,6 +7,7 @@ RUN apk add --update --no-cache ttf-dejavu fontconfig \
     && rm -rf /var/cache/apk/* \
     && mkdir -p /data/log/opensource/pay/logs \
     && chown spring:spring /data/log/opensource/pay/logs
+RUN echo "Asia/Shanghai" > /etc/timezone
 USER spring:spring
 VOLUME /logs
 ARG JAR_FILE=target/roncoo-pay-web-merchant.war

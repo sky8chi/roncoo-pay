@@ -90,7 +90,7 @@ public class WinXinFileDown implements FileDown {
 
 			response = HttpClientUtil.httpsRequest(url, "POST", xml);
 
-			// String dir = "/home/roncoo/app/accountcheck/billfile/weixin";
+			// String dir = "/data/log/app/accountcheck/billfile/weixin";
 
 			File file = new File(dir, bill_date + "_" + bill_type.toLowerCase() + ".txt");
 			int index = 1;

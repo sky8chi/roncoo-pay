@@ -16,6 +16,7 @@
 package com.roncoo.pay.controller.common;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.InetAddress;
@@ -27,6 +28,7 @@ import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
@@ -265,5 +267,17 @@ public abstract class BaseController {
     		map.put(param.getName(), param.getValue());
     	}
        return map;   
-    }   
+    }
+
+	public void write(HttpServletResponse response, String s) {
+		PrintWriter out = null;
+		try {
+			out = response.getWriter();
+			out.print(s);
+		} catch (IOException e) {
+			logger.error("返回支付结果接收状态到微信支付错误", e);
+		} finally {
+			out.close();
+		}
+	}
 }

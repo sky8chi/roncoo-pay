@@ -18,10 +18,16 @@ package com.roncoo.pay.controller.common;
 import com.roncoo.pay.common.core.dwz.DWZ;
 import com.roncoo.pay.common.core.dwz.DwzAjax;
 import com.roncoo.pay.permission.entity.PmsOperator;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.ui.Model;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 
 /**
@@ -30,6 +36,8 @@ import org.springframework.ui.Model;
  * @author zenghao
  */ 
 public abstract class BaseController {
+
+	private static final Log log = LogFactory.getLog(BaseController.class);
 
 	/**
 	 * 获取shiro 的session
@@ -85,4 +93,15 @@ public abstract class BaseController {
 		return "common/ajaxDone";
 	}
 
+	public void write(HttpServletResponse response, String s) {
+		PrintWriter out = null;
+		try {
+			out = response.getWriter();
+			out.print(s);
+		} catch (IOException e) {
+			log.error("返回支付结果接收状态到微信支付错误", e);
+		} finally {
+			out.close();
+		}
+	}
 }

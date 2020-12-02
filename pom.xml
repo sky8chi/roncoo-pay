@@ -83,6 +83,10 @@
 		<commons-io.version>2.6</commons-io.version>
 		<httpclient.version>4.5.7</httpclient.version>
 		<java.version>1.8</java.version>
+
+		<docker.registry>harbor.kxfo.com</docker.registry>
+		<docker.image.prefix>pay</docker.image.prefix>
+		<dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
 	</properties>
 
 	<!--版本管理-->
@@ -184,6 +188,11 @@
 				<version>${commons-io.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile-maven-plugin.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

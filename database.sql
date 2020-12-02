@@ -621,19 +621,23 @@ alter table rp_trade_payment_record comment '支付记录表';
 /* create function                                              */
 /*==============================================================*/
 
-CREATE FUNCTION  FUN_NOW()
- RETURNS DATETIME
+DELIMITER $$
+DROP FUNCTION IF EXISTS FUN_NOW$$
+CREATE FUNCTION  FUN_NOW() RETURNS DATETIME
 BEGIN
-RETURN now();
-END;
+    RETURN now();
+END$$
+DELIMITER;
 
 
 -- 时间函数
-
+DELIMITER $$
+DROP FUNCTION IF EXISTS FUN_DATE_ADD$$
 CREATE FUNCTION `FUN_DATE_ADD`(STR_DATE VARCHAR(10), STR_INTERVAL INTEGER) RETURNS DATE
 BEGIN
      RETURN date_add(STR_DATE, INTERVAL STR_INTERVAL DAY);
-END;
+END$$
+DELIMITER;
 
 
 

@@ -147,6 +147,7 @@ public class ShiroConfig {
 
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         filterChainDefinitionMap.put("/rcCaptcha*", "anon");
+        filterChainDefinitionMap.put("/keepalive/**", "anon");
         filterChainDefinitionMap.put("/system/unauthorized.jsp", "anon");
         filterChainDefinitionMap.put("/common/**", "anon");
         filterChainDefinitionMap.put("/dwz/**", "anon");

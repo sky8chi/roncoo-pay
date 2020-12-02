@@ -9,7 +9,6 @@
 
 	<groupId>com.roncoo.pay.service</groupId>
 	<artifactId>roncoo-pay-service</artifactId>
-
 	<name>roncoo-pay-service</name>
 	<description>支付系统核心业务</description>
 

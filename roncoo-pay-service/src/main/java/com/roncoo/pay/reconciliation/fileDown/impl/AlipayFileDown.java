@@ -153,7 +153,7 @@ public class AlipayFileDown implements FileDown {
 	private File createFile(String bill_date, String stringResult, String dir) throws IOException {
 
 		// 创建本地文件，用于存储支付宝对账文件
-		// String dir = "/home/roncoo/app/accountcheck/billfile/alipay";
+		// String dir = "/data/log/app/accountcheck/billfile/alipay";
 		File file = new File(dir, bill_date + "_" + ".xml");
 		int index = 1;
 		// 判断文件是否已经存在
